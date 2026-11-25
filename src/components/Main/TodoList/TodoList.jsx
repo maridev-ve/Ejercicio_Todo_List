@@ -21,9 +21,12 @@ const TodoList = () => {
     });
   };
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setValues([])
+    
     const newTask = { ...values, isDone: false, _id: uuidv4() };
     //¿Por qué false? Porque una tarea que acabas de crear todavía no está hecha
 
@@ -40,8 +43,7 @@ const TodoList = () => {
   };
 
   //Renderizar los datos
-  const paintData = () =>
-    tasks.map((task) => <TodoItem key={task._id} data={task} onRemove={removeTask}/>);
+  const paintData = () => tasks.map((task) => <TodoItem key={task._id} data={task} onRemove={removeTask} values={setValues}/>);
 
   //Objetivo: Vaciar el array de items
   const removeData = () => setTasks([]);
