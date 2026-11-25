@@ -1,6 +1,6 @@
 import "./TodoItem.css";
 
-const TodoItem = ({ data, onRemove, setValues }) => {
+const TodoItem = ({ data, onRemove }) => {
   const { title, desc, _id} = data;
 
 
