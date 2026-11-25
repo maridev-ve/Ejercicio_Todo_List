@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "task-1",
+    "title": "Comprar el pan",
+    "desc": "Una barra y unos croissants para el desayuno",
+    "isDone": false
+  },
+  {
+    "_id": "task-2",
+    "title": "Estudiar React",
+    "desc": "Repasar useState y cómo pasar props entre componentes",
+    "isDone": true
+  },
+  {
+    "_id": "task-3",
+    "title": "Llamar al dentista",
+    "desc": "Pedir cita para la revisión anual",
+    "isDone": false
+  },
+  {
+    "_id": "task-4",
+    "title": "Sacar a pasear al perro",
+    "desc": "Paseo largo por el parque antes de cenar",
+    "isDone": false
+  },
+  {
+    "_id": "task-5",
+    "title": "Hacer la colada",
+    "desc": "Poner la lavadora con la ropa blanca",
+    "isDone": true
+  }
+]

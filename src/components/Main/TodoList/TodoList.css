@@ -1,0 +1,84 @@
+/* Contenedor de toda la lista */
+.todo-list {
+  max-width: 600px;
+  margin: 32px auto;
+  padding: 0 16px;
+  text-align: left;
+}
+
+/* Formulario: input + botón ADD */
+.todo-list form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.todo-list label {
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.todo-list input {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text-h);
+}
+
+.todo-list input:focus {
+  outline: 2px solid var(--accent);
+  border-color: transparent;
+}
+
+/* Mensaje "Completa los campos" */
+.todo-list form b {
+  margin-top: 8px;
+  font-weight: normal;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* Todos los botones de la lista */
+.todo-list button {
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.todo-list button:hover {
+  border-color: var(--accent-border);
+}
+
+/* Botón ADD: un poco más destacado */
+.todo-list form button {
+  margin-top: 8px;
+  align-self: flex-start;
+}
+
+/* La lista: quitamos los puntos y el margen por defecto */
+.todo-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Botones CLEAR y RESET, uno al lado del otro */
+.todo-list > button {
+  margin-right: 8px;
+}
