@@ -1,8 +1,8 @@
 import { useState } from "react";
 import TodoItem from "./TodoItem";
-import initialTasks from "../../../data/tasks.json";
 import { v4 as uuidv4 } from "uuid";
 import "./TodoList.css";
+import { useEffect } from "react";
 
 const initialValues = {
   title: "",
@@ -11,7 +11,26 @@ const initialValues = {
 
 const TodoList = () => {
   //tasks guardadas en el estado
-  const [tasks, setTasks] = useState(initialTasks);
+  const [tasks, setTasks] = useState([]);
+
+  const [initialData, setInitialData] = useState([])
+
+  useEffect(() => {
+    const getTasks = async () => {
+      try {
+        const res = await fetch("/data/tasks.json");
+        const data = await res.json();
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        setTasks(data);
+        setInitialData(data)
+      } catch (error) {
+        console.error("Message: error al intentar", error);
+      }
+    };
+
+    getTasks();
+  }, []);
+
 
   //estado inicial del formulario
   const [values, setValues] = useState(initialValues);
@@ -52,7 +71,7 @@ const TodoList = () => {
   //Objetivo: Vaciar el array de items
   const removeData = () => setTasks([]);
 
-  const resetData = () => setTasks(initialTasks);
+  const resetData = () => setTasks(initialData);
 
 
   return (
@@ -61,12 +80,12 @@ const TodoList = () => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Tarea</label>
         <br />
-        <input type="text" name="title" onChange={handleChange} values={} />
+        <input type="text" name="title" onChange={handleChange} value={values.title} />
         <br />
 
         <label htmlFor="desc">Description</label>
         <br />
-        <input type="text" name="desc" onChange={handleChange} value={} />
+        <input type="text" name="desc" onChange={handleChange} value={values.desc}/>
         <br />
 
         {values.title ? (

@@ -10,7 +10,6 @@ const TodoItem = ({ data, onRemove }) => {
           <p>{desc || "--"}</p>
           <button onClick={() => onRemove(_id)}>BORRAR</button>
       </li>
-
   );
 };
 
