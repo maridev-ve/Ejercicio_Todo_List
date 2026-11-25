@@ -13,16 +13,15 @@ const TodoList = () => {
   //tasks guardadas en el estado
   const [tasks, setTasks] = useState([]);
 
-  const [initialData, setInitialData] = useState([])
+  const [initialData, setInitialData] = useState([]);
 
   useEffect(() => {
     const getTasks = async () => {
       try {
         const res = await fetch("/data/tasks.json");
         const data = await res.json();
-        await new Promise((resolve) => setTimeout(resolve, 3000));
         setTasks(data);
-        setInitialData(data)
+        setInitialData(data);
       } catch (error) {
         console.error("Message: error al intentar", error);
       }
@@ -31,9 +30,14 @@ const TodoList = () => {
     getTasks();
   }, []);
 
-
+  
   //estado inicial del formulario
   const [values, setValues] = useState(initialValues);
+  
+  useEffect( () => {
+    const id = setTimeout(() => setValues(initialValues), 2000)
+    return () => clearTimeout(id)
+  }, [values]);
 
   const handleChange = (e) => {
     setValues({
@@ -42,10 +46,8 @@ const TodoList = () => {
     });
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
 
     const newTask = { ...values, isDone: false, _id: uuidv4() };
     //¿Por qué false? Porque una tarea que acabas de crear todavía no está hecha
@@ -54,7 +56,7 @@ const TodoList = () => {
     setTasks([...tasks, newTask]);
 
     //se borrará inmediatamente lo que habíamos escrito en el input
-    setValues(initialValues)
+    setValues(initialValues);
   };
 
   //Objetivo: Borrar cada tarea item
@@ -66,13 +68,15 @@ const TodoList = () => {
   };
 
   //Renderizar los datos
-  const paintData = () => tasks.map((task) => <TodoItem key={task._id} data={task} onRemove={removeTask} />);
+  const paintData = () =>
+    tasks.map((task) => (
+      <TodoItem key={task._id} data={task} onRemove={removeTask} />
+    ));
 
   //Objetivo: Vaciar el array de items
   const removeData = () => setTasks([]);
 
   const resetData = () => setTasks(initialData);
-
 
   return (
     <div className="todo-list">
@@ -80,12 +84,22 @@ const TodoList = () => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Tarea</label>
         <br />
-        <input type="text" name="title" onChange={handleChange} value={values.title} />
+        <input
+          type="text"
+          name="title"
+          onChange={handleChange}
+          value={values.title}
+        />
         <br />
 
         <label htmlFor="desc">Description</label>
         <br />
-        <input type="text" name="desc" onChange={handleChange} value={values.desc}/>
+        <input
+          type="text"
+          name="desc"
+          onChange={handleChange}
+          value={values.desc}
+        />
         <br />
 
         {values.title ? (
