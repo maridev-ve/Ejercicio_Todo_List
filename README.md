@@ -29,9 +29,9 @@ Haciendo uso de useState, crea una TODO list que contenga lo siguiente:
 
 - [x] Hasta que no haya texto no aparecerá el botón ADD
 - [X] La precarga de datos se debe hacer usando el lifecycle
-- [ ] Si pasados 20 segundos no envias la tarea que has escrito, se vaciará el input y desaparecerá ADD
-- [ ] Cuando haya sido añadida una tarea se mostrará durante 5 segundos el mensaje "tarea añadida" y luego desaparecerá
-- [ ] Validación: La tarea introducida en el input debe tener al menos 6 caracteres. En caso contrario debe aparecer un mensaje de error
+- [X] Si pasados 20 segundos no envias la tarea que has escrito, se vaciará el input y desaparecerá ADD
+- [X] Cuando haya sido añadida una tarea se mostrará durante 5 segundos el mensaje "tarea añadida" y luego desaparecerá
+- [X] Validación: La tarea introducida en el input debe tener al menos 6 caracteres. En caso contrario debe aparecer un mensaje de error
 
 ## Fase 3
 
