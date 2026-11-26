@@ -1,6 +1,6 @@
 import "./TodoItem.css";
 
-const TodoItem = ({ data, onRemove }) => {
+const TodoItem = ({ data, onRemoveTask, onEditTask }) => {
   const { title, desc, _id} = data;
 
 
@@ -8,7 +8,8 @@ const TodoItem = ({ data, onRemove }) => {
       <li className="todo-item">
           <p>{title || "--"}</p>
           <p>{desc || "--"}</p>
-          <button onClick={() => onRemove(_id)}>BORRAR</button>
+          <button onClick={() => onRemoveTask(_id)}>BORRAR</button>
+          <button onClick={() => onEditTask(_id)}>EDITAR</button>
       </li>
   );
 };

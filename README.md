@@ -35,7 +35,7 @@ Haciendo uso de useState, crea una TODO list que contenga lo siguiente:
 
 ## Fase 3
 
-- [ ] Editar tarea. Al hacer clic en el botón de edición de una tarea, se debe abrir un formulario prellenado con el título y el contenido de la tarea seleccionado. El usuario puede editar la tarea y guardar los cambios.
+- [] Editar tarea. Al hacer clic en el botón de edición de una tarea, se debe abrir un formulario prellenado con el título y el contenido de la tarea seleccionado. El usuario puede editar la tarea y guardar los cambios.
 - [ ] Tachar o Eliminar tareas. Añade funcionalidades para marcar las tareas como completadas (tachar) o eliminarlas.
 
 💡 Pista: El estado podría ser un array de objetos, algo así:
@@ -49,5 +49,5 @@ Haciendo uso de useState, crea una TODO list que contenga lo siguiente:
 }
 ```
 
-- [ ] División en Componentes. Para una mejor organización y reutilización del código, divide tu aplicación en componentes más pequeños y manejables.
+- [X] División en Componentes. Para una mejor organización y reutilización del código, divide tu aplicación en componentes más pequeños y manejables.
 - [ ] Despliegue de tu app en Netlify. En ese caso, la versión final deberá estar en la rama main. https://www.netlify.com/blog/2016/07/22/deploy-react-apps-in-less-than-30-seconds/
